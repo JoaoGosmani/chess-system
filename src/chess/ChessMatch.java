@@ -26,6 +26,8 @@ public class ChessMatch {
 	
 	private boolean checkMate;
 	
+	private int i;
+	
 	private List<Piece> piecesOnTheBoard = new ArrayList<>();
 	
 	private List<Piece> capturedPieces = new ArrayList<>();
@@ -137,8 +139,11 @@ public class ChessMatch {
 	}
 	
 	private void nextTurn() {
-		turn++;
 		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
+		if (i % 2 != 0) {
+			turn++;
+		}
+		i++;
 	}
 	
 	private Color opponent(Color color) {
